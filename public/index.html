@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="emailApp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./reset.css">
+    <title>Node Emails</title>
+  </head>
+  <body ng-controller="messageCtrl">
+    <main class="alerts-section">
+      <section class="sec">
+        <div class="alerts-form-group">
+          <h1 class="form-text">FORMSPREE</h1>
+        </div>
+        <form class="alerts-form-group" action="//formspree.io/craigwalker1123@gmail.com" method="POST">
+             <div class="input-div">
+               <textarea name="message" class="form-control" placeholder="message..." maxlength="200"></textarea>
+             </div>
+           <div class="form-group">
+             <div class="input-div">
+               <button value="Send" class="form-btn" id="spree">Send Message</button>
+             </div>
+           </div>
+         </form>
+      </section>
+      <section class="sec">
+        <div class="alerts-form-group">
+          <h1 class="form-text">NODEMAILER</h1>
+        </div>
+        <br>
+        <form role="form" class="form-container">
+            <div class="alerts-form-group">
+                <label for="email" id="pwd" class="form-text">Email address:</label>
+                <input type="email" class="form-control test" placeholder="receiver" id="email" ng-model="email.toField">
+            </div>
+            <div class="alerts-form-group">
+                <label for="pwd" class="form-text">Subject:</label>
+                <input type="text" class="form-control" id="pwd" ng-model="email.subjectField" placeholder="title">
+            </div>
+            <div class="alerts-form-group">
+                <label for="pwd" class="form-text">Message:</label>
+                <textarea type="text" class="form-control" id="pwd" ng-model="email.textField" placeholder="message..."></textarea>
+            </div>
+            <div class="alerts-form-display">
+              <button type="submit" ng-click="sendEmail(email)" class="form-btn">Submit</button>
+            </div>
+        </form>
+      </section>
+      <section>
+        <div class="alerts-form-group">
+          <h1 class="form-text">TWILIO</h1>
+        </div>
+        <br>
+        <div class="message-sender alerts-form-group">
+            <h5 class="form-text">Text your Team:</h5>
+            <input type="text" class="form-control" ng-model="phone" placeholder="Phone #">
+            <br>
+            <textarea class="message-input-box form-control" rows="2" ng-model="message" placeholder="message..."></textarea>
+            <div class="form-display">
+              <button type="submit" ng-click="sendText(phone, message)" class="form-btn">Send Text</button>
+            </div>
+        </div>
+      </section>
+    </main>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+    <script src="./bundle.js"></script>
+  </body>
+</html>
